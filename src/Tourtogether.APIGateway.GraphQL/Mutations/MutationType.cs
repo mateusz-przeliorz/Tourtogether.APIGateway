@@ -1,12 +1,14 @@
 ﻿using HotChocolate.Types;
+using Tourtogether.APIGateway.GraphQL.InputTypes.Identity;
+using Tourtogether.APIGateway.GraphQL.Resolvers.Mutations;
 
 namespace Tourtogether.APIGateway.GraphQL.Mutations
 {
-    public class MutationType : ObjectType<Mutation>
+    public class MutationType : ObjectType
     {
-        protected override void Configure(IObjectTypeDescriptor<Mutation> descriptor)
+        protected override void Configure(IObjectTypeDescriptor descriptor)
         {
-            descriptor.Field(t => t.CreateUser()).Type<NonNullType<StringType>>();
+            descriptor.Field<MutationResolver>(t => t.CreateUser(new CreateUserInput()));
         }
     }
 }

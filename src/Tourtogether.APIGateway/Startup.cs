@@ -1,5 +1,7 @@
+using System;
 using HotChocolate;
 using HotChocolate.AspNetCore;
+using HotChocolate.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -7,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Tourtogether.APIGateway.GraphQL.Mutations;
 using Tourtogether.APIGateway.GraphQL.Queries;
+using Tourtogether.APIGateway.GraphQL.Types;
 
 namespace Tourtogether.APIGateway
 {
@@ -20,6 +23,8 @@ namespace Tourtogether.APIGateway
                 SchemaBuilder.New()
                     .AddQueryType<QueryType>()
                     .AddMutationType<MutationType>()
+                    .AddType<CreateUserType>()
+                    .BindClrType<DateTime, DateType>()
                     .Create());
         }
 
