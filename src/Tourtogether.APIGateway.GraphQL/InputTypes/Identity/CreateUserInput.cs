@@ -1,7 +1,4 @@
-﻿using HotChocolate.Types;
-using Tourtogether.APIGateway.GraphQL.Types;
-
-namespace Tourtogether.APIGateway.GraphQL.InputTypes.Identity
+﻿namespace Tourtogether.APIGateway.GraphQL.InputTypes.Identity
 {
     public class CreateUserInput
     {

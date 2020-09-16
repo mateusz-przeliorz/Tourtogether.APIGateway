@@ -8,7 +8,7 @@ namespace Tourtogether.APIGateway.GraphQL.Queries
     {
         protected override void Configure(IObjectTypeDescriptor descriptor)
         {
-            descriptor.Field<QueryResolver>(t => t.FetchUser(new GetUserInput()));
+            descriptor.Field<IdentityQueryResolver>(t => t.FetchUser(new GetUserInput()));
         }
     }
 }
